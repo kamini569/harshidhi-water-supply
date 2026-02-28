@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Harshidhi Water Supply - Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:url("https://images.unsplash.com/photo-1548839140-29a749e1cf4d") no-repeat center center/cover;
+color:white;
+}
+
+.overlay{
+background:rgba(0,0,0,0.65);
+min-height:100vh;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,119,182,0.85);
+}
+
+nav h2{
+font-size:24px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#ffd60a;
+}
+
+/* HERO */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px 8%;
+flex-wrap:wrap;
+animation:fadeIn 1.5s ease-in-out;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero-text h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.btn{
+padding:14px 30px;
+background:#00b4d8;
+border-radius:30px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#0096c7;
+transform:scale(1.05);
+}
+
+/* ABOUT */
+.about{
+padding:60px 8%;
+text-align:center;
+}
+
+.about p{
+max-width:800px;
+margin:auto;
+margin-top:15px;
+font-size:18px;
+}
+
+/* FEATURES */
+.features{
+padding:60px 8%;
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.feature-box{
+background:rgba(255,255,255,0.1);
+padding:25px;
+width:250px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+text-align:center;
+transition:0.4s;
+}
+
+.feature-box:hover{
+transform:translateY(-10px);
+}
+
+.feature-box i{
+font-size:35px;
+margin-bottom:15px;
+color:#ffd60a;
+}
+
+/* CTA */
+.cta{
+padding:60px 8%;
+text-align:center;
+}
+
+.cta h2{
+margin-bottom:20px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:15px;
+background:rgba(0,119,182,0.85);
+margin-top:40px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:768px){
+.hero{
+flex-direction:column;
+text-align:center;
+}
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+<nav>
+<h2><i class="fa-solid fa-droplet"></i> Harshidhi Water Supply</h2>
+<ul>
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'services' %}">Services</a></li>
+<li><a href="{% url 'pricing' %}">Pricing</a></li>
+<li><a href="{% url 'order' %}">Order</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+<div class="hero-text">
+<h1>Pure & Safe Drinking Water</h1>
+<p>We provide reliable, hygienic and affordable water supply for homes, offices, events and bulk requirements in Vadodara.</p>
+<a href="order" class="btn">Order Now</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+<h2>About Our Company</h2>
+<p>Harshidhi Water Supply is committed to delivering high-quality RO purified drinking water with safe packaging and on-time delivery. Our mission is to provide healthy hydration to every home and business.</p>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+<div class="feature-box">
+<i class="fa-solid fa-shield-halved"></i>
+<h3>100% Safe</h3>
+<p>Advanced RO purification process.</p>
+</div>
+
+<div class="feature-box">
+<i class="fa-solid fa-truck-fast"></i>
+<h3>Fast Delivery</h3>
+<p>Same day doorstep service.</p>
+</div>
+
+<div class="feature-box">
+<i class="fa-solid fa-hand-holding-dollar"></i>
+<h3>Affordable Price</h3>
+<p>Only $25 per 20L bottle.</p>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<h2>Need Bulk Water for Event or Office?</h2>
+<a href="contact" class="btn">Contact Us</a>
+</section>
+
+<footer>
+© 2026 Harshidhi Water Supply | All Rights Reserved
+</footer>
+
+<a href="https://wa.me/918866413592" class="whatsapp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+</div>
+</body>
+</html>
