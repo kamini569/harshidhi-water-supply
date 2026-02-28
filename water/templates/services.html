@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Our Services - Harshidhi Water</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+
+body{
+background:url("https://images.unsplash.com/photo-1501696461415-6bd6660c6742") no-repeat center/cover;
+color:white;
+}
+
+.overlay{background:rgba(0,0,0,0.65);min-height:100vh;}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+background:rgba(0,119,182,0.85);
+}
+
+nav h2{color:white;}
+nav ul{display:flex;list-style:none;}
+nav ul li{margin-left:20px;}
+nav ul li a{color:white;text-decoration:none;font-weight:bold;}
+
+.section{
+padding:80px 10%;
+text-align:center;
+animation:fade 2s;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.1);
+padding:30px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+transition:0.4s;
+}
+
+.card:hover{transform:translateY(-10px);}
+
+.card i{
+font-size:35px;
+margin-bottom:15px;
+color:#ffd60a;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.whatsapp{
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:white;
+padding:15px;border-radius:50%;
+font-size:22px;
+}
+</style>
+</head>
+<body>
+<div class="overlay">
+
+<nav>
+<h2><i class="fa-solid fa-droplet"></i> Harshidhi Water</h2>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="pricing.html">Pricing</a></li>
+<li><a href="order.html">Order</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<div class="section">
+<h1>Our Services</h1>
+
+<div class="services">
+
+<div class="card">
+<i class="fa-solid fa-bottle-water"></i>
+<h3>20L Jug Supply</h3>
+<p>Hot & Cold water available – ₹25 per jug</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-building"></i>
+<h3>Home & Office Supply</h3>
+<p>Daily, weekly & monthly subscription</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-champagne-glasses"></i>
+<h3>Marriage / Event Supply</h3>
+<p>Bulk water for weddings & events</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-truck-droplet"></i>
+<h3>Bulk Water Tanker</h3>
+<p>Large tanker delivery service</p>
+</div>
+
+</div>
+</div>
+
+<a href="https://wa.me/919876543210" class="whatsapp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+</div>
+</body>
+</html>
