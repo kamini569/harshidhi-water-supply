@@ -16,12 +16,23 @@ color:white;
 
 .overlay{background:rgba(0,0,0,0.75);min-height:100vh;}
 
+/* NAVBAR */
 nav{display:flex;justify-content:space-between;padding:20px 10%;background:rgba(0,119,182,0.85);}
 nav ul{display:flex;list-style:none;}
 nav ul li{margin-left:20px;}
-nav ul li a{color:white;text-decoration:none;}
+nav ul li a{color:white;text-decoration:none;transition:0.3s;font-weight:bold;}
+nav ul li a:hover{color:#ffd60a;}
 
-.section{padding:80px 10%;text-align:center;}
+/* SECTION */
+.section{
+padding:50px 10%; /* Reduced top padding to lift content up */
+text-align:center;
+margin-top:-30px; /* Move section slightly upwards */
+}
+
+.section h1{font-size:45px;margin-bottom:10px;}
+.section p.subtitle{font-size:18px;color:#ffd60a;margin-bottom:20px;}
+.divider{width:60px;height:3px;background:#ffd60a;margin:0 auto 40px;border-radius:3px;}
 
 form{
 background:rgba(255,255,255,0.1);
@@ -30,14 +41,30 @@ max-width:500px;
 margin:auto;
 border-radius:20px;
 backdrop-filter:blur(10px);
+transition:0.4s;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+margin-top:-20px; /* Move form slightly up */
 }
 
-input,select{
+form:hover{
+box-shadow:0 15px 35px rgba(255,215,10,0.6);
+}
+
+input,select,textarea{
 width:100%;
 padding:12px;
 margin:15px 0;
 border:none;
 border-radius:10px;
+}
+
+.input-note{
+font-size:13px;
+opacity:0.8;
+color:#ffd60a;
+text-align:left;
+margin-top:-10px;
+margin-bottom:10px;
 }
 
 button{
@@ -48,6 +75,12 @@ border-radius:30px;
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#0072b8;
 }
 
 .error{
@@ -59,6 +92,11 @@ font-size:14px;
 color:#00ff88;
 font-weight:bold;
 margin-top:10px;
+}
+
+/* Responsive */
+@media(max-width:600px){
+form{padding:30px;}
 }
 </style>
 </head>
@@ -79,17 +117,28 @@ margin-top:10px;
 
 <div class="section">
 <h1>Place Your Order</h1>
+<p class="subtitle">Fill in your details and get water delivery directly to your door</p>
+<div class="divider"></div>
 
 <form id="orderForm">
 <input type="text" id="name" placeholder="Full Name">
+
 <input type="tel" id="mobile" placeholder="Mobile Number (10 digits)">
+<div class="input-note">We will contact you on this number</div>
+
+<input type="text" id="address" placeholder="Address">
+<div class="input-note">Enter your full delivery address</div>
+
 <select id="service">
 <option value="">Select Service</option>
 <option>20L Jug</option>
 <option>20L Big Bottle</option>
 <option>Bulk Tanker</option>
 </select>
+<div class="input-note">Choose the service you want to order</div>
+
 <input type="number" id="qty" placeholder="Quantity">
+<div class="input-note">Number of bottles or tankers required</div>
 
 <div class="error" id="errorMsg"></div>
 <div class="success" id="successMsg"></div>
@@ -106,6 +155,7 @@ e.preventDefault();
 
 let name = document.getElementById("name").value.trim();
 let mobile = document.getElementById("mobile").value.trim();
+let address = document.getElementById("address").value.trim();
 let service = document.getElementById("service").value;
 let qty = document.getElementById("qty").value;
 
@@ -115,7 +165,7 @@ let successMsg = document.getElementById("successMsg");
 errorMsg.innerHTML="";
 successMsg.innerHTML="";
 
-if(name=="" || mobile=="" || service=="" || qty==""){
+if(name=="" || mobile=="" || address=="" || service=="" || qty==""){
 errorMsg.innerHTML="Please fill all details.";
 return;
 }
@@ -128,7 +178,7 @@ return;
 successMsg.innerHTML="Order Submitted Successfully!";
 
 setTimeout(function(){
-window.location.href="/";
+window.location.href="{% url 'home' %}";
 },2000);
 
 });

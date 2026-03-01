@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us - Harshidhi Water</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:url("https://images.unsplash.com/photo-1503435824048-a799a3a84bf7") no-repeat center/cover;
+color:white;
+}
+
+.overlay{
+background:rgba(0,0,0,0.75);
+min-height:100vh;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,119,182,0.85);
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#ffd60a;
+}
+
+/* SECTION */
+.section{
+padding:80px 8%;
+}
+
+.section h1{
+text-align:center;
+margin-bottom:10px;
+font-size:45px;
+}
+
+.section p.subtitle{
+text-align:center;
+color:#ffd60a;
+font-size:18px;
+margin-bottom:20px;
+}
+
+.divider{
+width:60px;
+height:3px;
+background:#ffd60a;
+margin:0 auto 50px;
+border-radius:3px;
+}
+
+/* CONTACT LAYOUT */
+.contact-container{
+display:flex;
+justify-content:center;
+gap:50px;
+flex-wrap:wrap;
+}
+
+/* LEFT SIDE INFO */
+.contact-info{
+flex:1;
+min-width:280px;
+}
+
+.info-box{
+display:flex;
+align-items:center;
+margin-bottom:25px;
+font-size:18px;
+transition:0.3s;
+}
+
+.info-box i{
+font-size:22px;
+margin-right:15px;
+color:#00e5ff;
+animation: float 2s infinite;
+}
+
+
+/* RIGHT SIDE FORM */
+.contact-form{
+flex:1;
+min-width:280px;
+background:rgba(255,255,255,0.1);
+padding:40px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+transition:0.4s;
+}
+
+.contact-form:hover{
+box-shadow:0 15px 40px rgba(255,215,10,0.6);
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:none;
+border-radius:8px;
+outline:none;
+}
+
+.input-note{
+font-size:13px;
+opacity:0.8;
+color:#ffd60a;
+text-align:left;
+margin-bottom:10px;
+}
+
+/* Button */
+.contact-form button{
+width:100%;
+padding:12px;
+border:none;
+background:#00b4d8;
+color:white;
+font-weight:bold;
+border-radius:25px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.contact-form button:hover{
+background:#0096c7;
+transform:scale(1.05);
+}
+
+.success-message{
+display:none;
+margin-top:15px;
+color:#00ffcc;
+font-weight:bold;
+}
+
+/* MAP */
+.map{
+margin-top:60px;
+text-align:center;
+}
+
+iframe{
+width:100%;
+height:300px;
+border-radius:15px;
+border:none;
+}
+
+/* Responsive */
+@media(max-width:768px){
+.contact-container{
+flex-direction:column;
+}
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+<nav>
+<h2><i class="fa-solid fa-droplet"></i> Harshidhi Water Supply</h2>
+<ul>
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'services' %}">Services</a></li>
+<li><a href="{% url 'pricing' %}">Pricing</a></li>
+<li><a href="{% url 'order' %}">Order</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+</ul>
+</nav>
+
+<div class="section">
+<h1>Get In Touch</h1>
+<p class="subtitle">We’d love to hear from you! Reach out with your queries or suggestions</p>
+<div class="divider"></div>
+
+<div class="contact-container">
+
+<!-- LEFT SIDE -->
+<div class="contact-info">
+<div class="info-box">
+<i class="fa-solid fa-phone"></i>
+<span>+91 8866413592</span>
+<span>  , +91 9998063592</span>
+</div>
+
+<div class="info-box">
+<i class="fa-brands fa-whatsapp"></i>
+<span>WhatsApp Available</span>
+</div>
+
+<div class="info-box">
+<i class="fa-solid fa-envelope"></i>
+<span>harshidhiwatersupply@gmail.com</span>
+</div>
+
+<div class="info-box">
+<i class="fa-solid fa-location-dot"></i>
+<span>Govind Colony, Vadodara, Gujarat</span>
+</div>
+</div>
+
+<!-- RIGHT SIDE FORM -->
+<div class="contact-form">
+<form onsubmit="return submitForm()">
+<input type="text" id="name" placeholder="Your Name">
+<div class="input-note"></div>
+
+<input type="email" id="email" placeholder="Your Mobile Number">
+<div class="input-note">We'll contact you on this mobile number</div>
+
+<textarea rows="4" id="message" placeholder="Your Message"></textarea>
+<div class="input-note">Write your query or feedback</div>
+
+<button type="submit">Send Message</button>
+<div class="success-message" id="successMsg">
+Message Sent Successfully!
+</div>
+</form>
+</div>
+
+</div>
+
+<!-- GOOGLE MAP -->
+<div class="map">
+<h2>Our Location</h2>
+
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.860099224905!2d73.08866431093386!3d22.28328874342707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc7004c729cad%3A0x69e4fc60a6391f27!2sHarshidhi%20water%20supply!5e0!3m2!1sen!2sin!4v1772358338616!5m2!1sen!2sin"
+width="100%" 
+height="350" 
+style="border:0; border-radius:15px;" 
+allowfullscreen="" 
+loading="lazy">
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+function submitForm(){
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let message=document.getElementById("message").value;
+
+if(name=="" || email=="" || message==""){
+alert("Please fill all details!");
+return false;
+}
+
+document.getElementById("successMsg").style.display="block";
+
+setTimeout(function(){
+window.location.href="{% url 'home' %}";
+},2000);
+
+return false;
+}
+</script>
+
+</body>
+</html>
