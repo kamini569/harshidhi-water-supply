@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+{% load static %}
 <head>
-<title>Pricing - Harshidhi Water</title>
+<title>Pricing - Harshidhi Water Supply</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -24,12 +25,17 @@ background:rgba(0,0,0,0.7);
 min-height:100vh;
 }
 
+/* NAVBAR */
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 10%;
+padding:20px 8%;
 background:rgba(0,119,182,0.85);
+}
+
+nav h2{
+font-size:24px;
 }
 
 nav ul{
@@ -45,47 +51,68 @@ nav ul li a{
 color:white;
 text-decoration:none;
 font-weight:bold;
+transition:0.3s;
 }
 
+nav ul li a:hover{
+color:#ffd60a;
+}
+
+/* SECTION */
 .section{
-padding:80px 10%;
+padding:80px 8%;
 text-align:center;
 }
 
-/* Vertical Layout */
 .price-container{
 display:flex;
-flex-direction:column;
-align-items:center;
+justify-content:center;
+align-items:stretch;
 gap:30px;
-margin-top:40px;
+margin-top:50px;
+flex-wrap:wrap;
 }
 
 .price-card{
 background:rgba(255,255,255,0.1);
 padding:40px;
-width:350px;
+width:300px;
 border-radius:20px;
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 transition:0.4s;
 text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .price-card:hover{
-transform:scale(1.05);
+transform:translateY(-12px);
 }
 
 .price-card i{
-font-size:35px;
-margin-bottom:15px;
+font-size:40px;
+margin-bottom:20px;
 color:#ffd60a;
 }
 
 .price{
-font-size:28px;
-margin-top:10px;
+font-size:30px;
+margin-top:15px;
 color:#00ffcc;
 font-weight:bold;
+}
+
+.tag{
+margin-top:10px;
+font-size:14px;
+opacity:0.8;
+}
+
+/* Responsive */
+@media(max-width:900px){
+.price-container{
+flex-direction:column;
+align-items:center;
+}
 }
 </style>
 </head>
@@ -105,7 +132,7 @@ font-weight:bold;
 </nav>
 
 <div class="section">
-<h1>Pricing Details</h1>
+<h1>Our Pricing Plans</h1>
 
 <div class="price-container">
 
@@ -113,18 +140,21 @@ font-weight:bold;
 <i class="fa-solid fa-bottle-water"></i>
 <h3>20L Mineral Water Jug</h3>
 <div class="price">$25</div>
+<div class="tag">Hot & Cold Available</div>
 </div>
 
 <div class="price-card">
 <i class="fa-solid fa-jar"></i>
 <h3>20L Big Bottle</h3>
 <div class="price">$25</div>
+<div class="tag">Office & Home Use</div>
 </div>
 
 <div class="price-card">
 <i class="fa-solid fa-truck"></i>
 <h3>Out of Village Delivery</h3>
-<div class="price">$100 Extra</div>
+<div class="price">$100</div>
+<div class="tag">Additional Delivery Charge</div>
 </div>
 
 </div>

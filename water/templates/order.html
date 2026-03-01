@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+<title>Order Water</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';}
+
+body{
+background:url("https://images.unsplash.com/photo-1548839140-29a749e1cf4d") no-repeat center/cover;
+color:white;
+}
+
+.overlay{background:rgba(0,0,0,0.75);min-height:100vh;}
+
+nav{display:flex;justify-content:space-between;padding:20px 10%;background:rgba(0,119,182,0.85);}
+nav ul{display:flex;list-style:none;}
+nav ul li{margin-left:20px;}
+nav ul li a{color:white;text-decoration:none;}
+
+.section{padding:80px 10%;text-align:center;}
+
+form{
+background:rgba(255,255,255,0.1);
+padding:40px;
+max-width:500px;
+margin:auto;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:15px 0;
+border:none;
+border-radius:10px;
+}
+
+button{
+padding:12px 30px;
+background:#00b4d8;
+border:none;
+border-radius:30px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.error{
+color:#ff4d4d;
+font-size:14px;
+}
+
+.success{
+color:#00ff88;
+font-weight:bold;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+<nav>
+<h2><i class="fa-solid fa-droplet"></i> Harshidhi Water Supply</h2>
+<ul>
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'services' %}">Services</a></li>
+<li><a href="{% url 'pricing' %}">Pricing</a></li>
+<li><a href="{% url 'order' %}">Order</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+</ul>
+</nav>
+
+<div class="section">
+<h1>Place Your Order</h1>
+
+<form id="orderForm">
+<input type="text" id="name" placeholder="Full Name">
+<input type="tel" id="mobile" placeholder="Mobile Number (10 digits)">
+<select id="service">
+<option value="">Select Service</option>
+<option>20L Jug</option>
+<option>20L Big Bottle</option>
+<option>Bulk Tanker</option>
+</select>
+<input type="number" id="qty" placeholder="Quantity">
+
+<div class="error" id="errorMsg"></div>
+<div class="success" id="successMsg"></div>
+
+<button type="submit">Submit Order</button>
+</form>
+
+</div>
+</div>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+let name = document.getElementById("name").value.trim();
+let mobile = document.getElementById("mobile").value.trim();
+let service = document.getElementById("service").value;
+let qty = document.getElementById("qty").value;
+
+let errorMsg = document.getElementById("errorMsg");
+let successMsg = document.getElementById("successMsg");
+
+errorMsg.innerHTML="";
+successMsg.innerHTML="";
+
+if(name=="" || mobile=="" || service=="" || qty==""){
+errorMsg.innerHTML="Please fill all details.";
+return;
+}
+
+if(mobile.length!=10 || isNaN(mobile)){
+errorMsg.innerHTML="Enter valid 10 digit mobile number.";
+return;
+}
+
+successMsg.innerHTML="Order Submitted Successfully!";
+
+setTimeout(function(){
+window.location.href="/";
+},2000);
+
+});
+</script>
+
+</body>
+</html>
