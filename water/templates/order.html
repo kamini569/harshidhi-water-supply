@@ -120,16 +120,17 @@ form{padding:30px;}
 <p class="subtitle">Fill in your details and get water delivery directly to your door</p>
 <div class="divider"></div>
 
-<form id="orderForm">
-<input type="text" id="name" placeholder="Full Name">
+<form method="POST">
+{% csrf_token %}
+<input type="text" name="name" placeholder="Full Name">
 
-<input type="tel" id="mobile" placeholder="Mobile Number (10 digits)">
+<input type="tel" name="mobile" placeholder="Mobile Number (10 digits)">
 <div class="input-note">We will contact you on this number</div>
 
-<input type="text" id="address" placeholder="Address">
+<input type="text" name="address" placeholder="Address">
 <div class="input-note">Enter your full delivery address</div>
 
-<select id="service">
+<select name="service">
 <option value="">Select Service</option>
 <option>20L Jug</option>
 <option>20L Big Bottle</option>
@@ -137,7 +138,7 @@ form{padding:30px;}
 </select>
 <div class="input-note">Choose the service you want to order</div>
 
-<input type="number" id="qty" placeholder="Quantity">
+<input type="number" name="qty" placeholder="Quantity">
 <div class="input-note">Number of bottles or tankers required</div>
 
 <div class="error" id="errorMsg"></div>

@@ -236,14 +236,15 @@ flex-direction:column;
 
 <!-- RIGHT SIDE FORM -->
 <div class="contact-form">
-<form onsubmit="return submitForm()">
-<input type="text" id="name" placeholder="Your Name">
+<form method="POST">
+{% csrf_token %}
+<input type="text" name="name" placeholder="Your Name" required>
 <div class="input-note"></div>
 
-<input type="email" id="email" placeholder="Your Mobile Number">
+<input type="text" name="mobile" placeholder="Mobile Number" required>
 <div class="input-note">We'll contact you on this mobile number</div>
 
-<textarea rows="4" id="message" placeholder="Your Message"></textarea>
+<textarea rows="4" name="message" placeholder="Your Message"></textarea>
 <div class="input-note">Write your query or feedback</div>
 
 <button type="submit">Send Message</button>
@@ -277,10 +278,10 @@ loading="lazy">
 <script>
 function submitForm(){
 let name=document.getElementById("name").value;
-let email=document.getElementById("email").value;
+let email=document.getElementById("mobile").value;
 let message=document.getElementById("message").value;
 
-if(name=="" || email=="" || message==""){
+if(name=="" || mobile=="" || message==""){
 alert("Please fill all details!");
 return false;
 }
